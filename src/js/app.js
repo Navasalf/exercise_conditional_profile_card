@@ -81,7 +81,7 @@ function render(variables = {}) {
   } else {
     gith = `${variables.github}`;
   }
-  // conditional for instagram
+  // conditional for linkedin
   let link = "linkedin inicial";
   if (variables.linkedin == null) {
     link = "4geeksacademy";
