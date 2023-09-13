@@ -1,3 +1,4 @@
+import { name } from "file-loader";
 import "../style/index.css";
 
 /**
@@ -29,18 +30,87 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  // conditional for name
+  let nombre = `${variables.name}`;
+  if (variables.name == null) {
+    nombre = "Your Name";
+  }
+
+  // conditional for last name
+  let apellido = `${variables.lastname}`;
+  if (variables.lastname == null) {
+    apellido = "Your Last Name";
+  }
+
+  // conditional for Rol
+  let rol = "valor inicial";
+  if (variables.role == null) {
+    rol = "Role";
+  } else {
+    rol = `${variables.role}`;
+  }
+
+  // conditional for City
+  let ciudad = "ciudad inicial";
+  if (variables.city == null) {
+    ciudad = "City";
+  } else {
+    ciudad = `${variables.city}`;
+  }
+
+  // conditional for Country
+  let pais = "Pais inicial";
+  if (variables.country == null) {
+    pais = "country";
+  } else {
+    pais = `${variables.country}`;
+  }
+
+  // conditional for twitter
+  let twit = "Github inicial";
+  if (variables.twitter == null) {
+    twit = "4geeksacademy";
+  } else {
+    twit = `${variables.twitter}`;
+  }
+
+  // conditional for Github
+  let gith = "Github inicial";
+  if (variables.github == null) {
+    gith = "4geeksacademy";
+  } else {
+    gith = `${variables.github}`;
+  }
+  // conditional for instagram
+  let link = "linkedin inicial";
+  if (variables.linkedin == null) {
+    link = "4geeksacademy";
+  } else {
+    link = `${variables.linkedin}`;
+  }
+
+  // conditional for instagram
+  let insta = "instagram inicial";
+  if (variables.instagram == null) {
+    insta = "4geeksacademy";
+  } else {
+    insta = `${variables.instagram}`;
+  }
+
   // reset the website body with the new html output
+
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
+
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${nombre}  ${apellido}</h1>
+          <h2>${rol}</h2>
+          <h3>${ciudad}, ${pais}</h3>
+          <ul class='${variables.socialMediaPosition}'>
+            <li><a href="https://twitter.com/${twit}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${gith}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${link}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${insta}"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
